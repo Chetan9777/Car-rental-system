@@ -1,212 +1,213 @@
-#include <iostream>
-#include <fstream>
-#include <conio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <dos.h>
-#include <iomanip> 
-
-
+#include<iostream>
 using namespace std;
-class customer // customer class
+
+class car        // Class Creation
 {
-	private:
-	public:
-	string customername;
-    string carmodel;
-    string carnumber;
-    char data;
-    // variables defined in this class in public mode.
-};
-class rent : public customer // inhereted class from customer class
-{
-	public:
-	int days=0,rentalfee=0; // additional int vatiables defined
-	void data()
-	{
-		int login();
-	login();
-	cout << "\t\t\t\tPlease Enter your Name: "; //taking data from the user
-    cin >> customername;
-    cout<<endl;
-    do
+    public:
+    int choice ,p , b , c , t , distance;
+    void recommend ();
+    void all_details();
+    void enquiry();
+    void rent();
+    int brentals();
+    int breserve();
+    int bintercity();
+    char pick[100];
+    char drop[100];
+    void bill();
+    
+    void show_cars()
     {
-        cout <<"\t\t\t\tPlease Select a Car"<<endl; //giving user a choice to select among three different models
-        cout<<"\t\t\t\tEnter 'A' for Tesla 20011."<<endl;
-        cout<<"\t\t\t\tEnter 'B' for Hyundai 2015."<<endl;
-        cout<<"\t\t\t\tEnter 'C' for Ford 2017."<<endl;
-        cout<<endl;
-        cout<<"\t\t\t\tChoose a Car from the above options: ";
-        cin >>carmodel;
-        cout<<endl;
- cout<<"--------------------------------------------------------------------------"<<endl;
- if(carmodel=="A")
- {
- 	system("CLS");
- 
-		cout<<"You have choosed Tesla model 2011"<<endl;
-		 ifstream inA("A.txt"); //displaying details of model A
-         char str[200];
-         while(inA) {
-         inA.getline(str, 200);  
-         if(inA) cout << str << endl;
-}
-sleep(2);
-  }
-  if(carmodel=="B")
-  {
-  	system("CLS");
-  
-		cout<<"You have choosed Hyundai model 2015"<<endl;
-		 ifstream inB("B.txt"); //displaying details of model B
-         char str[200];
-         while(inB) {
-         inB.getline(str, 200);  
-         if(inB) cout << str << endl;
-         
-     }
-     sleep(2);
- }
- if(carmodel=="C")
- {
- 	system("CLS");
-	     cout<<"You have choosed Ford model 2017"<<endl;
-		 ifstream inC("C.txt"); //displaying details of model C
-         char str[200];
-         while(inC) {
-         inC.getline(str, 200);  
-         if(inC) cout << str << endl;
-     }
-     sleep(2);
-}  
-if(carmodel !="A" && carmodel !="B" &&  carmodel !="C" )
-     
-      cout<<"Invaild Car Model. Please try again!"<<endl;
-        }
-while(carmodel !="A" && carmodel !="B" &&  carmodel !="C" );
-    cout<<"--------------------------------------------------------------------------"<<endl;
-    cout << "Please provide following information: "<<endl; 
-	//getting data from user related to rental service
-    cout<<"Please select a Car No. : ";
-    cin >> carnumber;
-    cout<<"Number of days you wish to rent the car : ";
-    cin >> days;
-    cout<<endl;
-	}
-	void calculate()
-	{
-		sleep(1);
-		system ("CLS");
-		cout<<"Calculating rent. Please wait......"<<endl;
-		sleep(2);
-		if(carmodel == "A"||carmodel=="a")
-        rentalfee=days*56;
-        if(carmodel == "B" ||carmodel=="b")
-        rentalfee=days*60;
-        if(carmodel == "C" ||carmodel=="c")
-        rentalfee=days*75;
+        cout<<" 1. Tata "<<endl;
+        cout<<" 2. Tesla "<<endl;
+        cout<<" 3. BMW "<<endl;
+        cout<<" 4. Audi "<<endl;
+        cout<<" 5. Lamborghini "<<endl;
+        cout<<" 6. Rolls Royce "<<endl;
+        cout<<" 7. Electric (Ola S1 , S1 pro) "<<endl;
     }
-void showrent()
-    {
-    cout << "\n\t\t                       Car Rental - Customer Invoice                  "<<endl;
-    cout << "\t\t	///////////////////////////////////////////////////////////"<<endl;
-    cout << "\t\t	| Invoice No. :"<<"------------------|"<<setw(10)<<"#Cnb81353"<<" |"<<endl;
-    cout << "\t\t	| Customer Name:"<<"-----------------|"<<setw(10)<<customername<<" |"<<endl;
-    cout << "\t\t	| Car Model :"<<"--------------------|"<<setw(10)<<carmodel<<" |"<<endl;
-    cout << "\t\t	| Car No. :"<<"----------------------|"<<setw(10)<<carnumber<<" |"<<endl;
-    cout << "\t\t	| Number of days :"<<"---------------|"<<setw(10)<<days<<" |"<<endl;
-    cout << "\t\t	| Your Rental Amount is :"<<"--------|"<<setw(10)<<rentalfee<<" |"<<endl;
-    cout << "\t\t	| Caution Money :"<<"----------------|"<<setw(10)<<"0"<<" |"<<endl;
-    cout << "\t\t	| Advanced :"<<"---------------------|"<<setw(10)<<"0"<<" |"<<endl;
-    cout << "\t\t	 ________________________________________________________"<<endl;
-    cout <<"\n";
-    cout << "\t\t	| Total Rental Amount is :"<<"-------|"<<setw(10)<<rentalfee<<" |"<<endl;
-    cout << "\t\t	 ________________________________________________________"<<endl;
-    cout << "\t\t	 # This is a computer generated invoce and it does not"<<endl;
-    cout << "\t\t	 require an authorised signture #"<<endl;
-    cout <<" "<<endl;
-    cout << "\t\t	///////////////////////////////////////////////////////////"<<endl;
-    cout << "\t\t	You are advised to pay up the amount before due date."<<endl;
-    cout << "\t\t	Otherwise penelty fee will be applied"<<endl;
-    cout << "\t\t	///////////////////////////////////////////////////////////"<<endl;
-    int f;
-    system("PAUSE");
-    
-    system ("CLS");
-    
-     ifstream inf("thanks.txt");
-
-  
-  char str[300];
-
-  while(inf) {
-    inf.getline(str, 300);
-    if(inf) cout << str << endl;
-  }
-  inf.close();
-	}
 };
-class welcome //welcome class
-{
-	public:
-	int welcum()
-	{
- ifstream in("welcome.txt"); //displaying welcome ASCII image text on output screen fn1353
 
-  if(!in) {
-    cout << "Cannot open input file.\n";
-  }
-  char str[1000];
-  while(in) {
-    in.getline(str, 1000);  // delim defaults to '\n' cp
-    if(in) cout << str << endl;
-  }
-  in.close();
-  sleep(1);
-  cout<<"\nStarting the program please wait....."<<endl;
-  sleep(1);
-  cout<<"\nloading up files....."<<endl;
-  sleep(1); //function which waits for (n) seconds
-  system ("CLS"); //cleares screen
+// class driver
+// {
+//     public : 
+//     int age ;
+//     char dname[100];
+//     int phone_no;
+    
+// };
+
+class customer
+{
+    public :
+    char cname[100];
+    int age;
+    int phone_no;
+};
+
+void car :: recommend()
+{
+    cout<<" Enter the number of passengers : ";
+    cin>>p;
+    cout<<" Enter the number of babies : ";
+    cin>>b;
+    cout<<endl;
+    if (p>=1 && b>=1)
+    {
+        cout<<" We would recommend SUV , Sedan "<<endl;
+        cout<<" Baby on the board "<<endl;
+    }
+    else if(p==1)
+    {
+        cout<<" We would recommend Bike"<<endl;
+        
+    }
+    else if(p==2)
+    {
+        cout<<" We would recommend Auto"<<endl;
+    }
+    else
+    {
+        cout<<" We would recommend Prime Sedan , Prime SUV , Mini"<<endl;
+    }
 }
 
-};
+void car :: enquiry()
+{
+    cout<<" Get in touch "<<endl;
+    cout<<" Call us at 9910010011 "<<endl;
+    cout<<" Mail us at carrentalsys@gmail.com "<<endl;
+    cout<<" Visit our website www.rentyurcar.com "<<endl;
+}
+
+void car :: rent()
+{
+    show_cars();
+    cout<<" Enter your car choice : ";
+    cin>>c;
+    cout<<endl;
+    
+    switch(c)
+    {
+        case 1:
+          cout<<" You have selected Tata "<<endl;
+        
+        case 2 :
+          cout<<" You have selected Tesla "<<endl;
+          break;
+        
+        case 3 :
+          cout<<" You have selected BMW "<<endl;
+          break;
+          
+        case 4 :
+          cout<<" You have selected Audi "<<endl;
+          break;
+        
+        case 5 :
+          cout<<" You have selected Lamborghini "<<endl;
+          break;
+        
+        case 6 :
+          cout<<" You have selected Rolls Royce "<<endl;
+          
+        case 7 :
+          cout<<" You have selected Electric (Ola S1 , S1 pro) "<<endl;
+          
+    }
+    cout<<endl;
+    
+    cout<<" Enter your Pick-up location : ";
+    cin>>pick;
+    cout<<" Enter your Drop location : ";
+    cin>>drop;
+    cout<<endl;
+    cout<<" 1. Rentals "<<endl;
+    cout<<" 2. Reserve "<<endl;
+    cout<<" 3. Intercity "<<endl;
+    cout<<" Select your Type "<<endl;
+    cin>>t;
+    cout<<endl;
+    switch(t)
+    {
+        case 1 :
+          cout<<" You have selected Rentals "<<endl;
+          break;
+        case 2 :
+          cout<<" You have selected Reserve "<<endl;
+        //   breserve();
+          break;
+        case 3 :
+          cout<<" You have selected Intercity "<<endl;
+        //   bintercity();
+          break;
+    }
+    
+    bill();
+    
+}
+void car :: bill()
+{
+    cout<<"Enter distance in Kms :";
+    cin>>distance;
+    if(distance<10)
+    {
+        cout<<" Tata will costs        : "<<distance*10<<endl;
+        cout<<" Tesla will costs       : "<<distance*50<<endl;
+        cout<<" Audi will costs        : "<<distance*20<<endl;
+        cout<<" BMW will costs         : "<<distance*30<<endl;
+        cout<<" Lamborghini will costs : "<<distance*40<<endl;
+        cout<<" Rolls Royce will costs : "<<distance*70<<endl;
+        cout<<" Electric will costs    : "<<distance*15<<endl;
+    }
+    
+}
+void car :: all_details()
+{
+    cout<<"*-------------------------------*"<<endl;
+    cout<<"  Welcome to Car Rental System "<<endl;
+    cout<<"*-------------------------------*"<<endl;
+    
+    
+    cout<<" 1. Show all cars "<<endl;
+    cout<<" 2. Car Enquiry "<<endl;
+    cout<<" 3. Rent a car "<<endl;
+    cout<<" 4. Our recommendation "<<endl;
+    cout<<" 5. Exit "<<endl;
+    cout<<" Enter your choice : ";
+    cin>>choice;
+    
+    switch(choice)
+    {
+        case 1:
+          show_cars();
+          break;
+        
+        case 2 :
+          enquiry();
+          break;
+        
+        case 3 :
+          rent();
+          break;
+          
+        case 4 :
+          recommend();
+          break;
+        
+        case 5 :
+          cout<<"Thank You for Visiting";
+          break;
+        
+    }
+    cout<<endl;
+}
 int main()
 {
-welcome obj1; //object created for welcome class
-obj1.welcum(); //welcum function is called
-rent obj2; 
-//object created for rent class and further member functions are called
-obj2.data();
-obj2.calculate();
-obj2.showrent();
-
-return 0; //end of the program
+    car c;
+    c.all_details();
+    
 }
 
-int login(){
-   string pass ="";
-   char ch;
-   cout<<"\n\n\n\n\n\n\n\n\t\t\t\t\t       CAR RENTAL SYSTEM \n\n";
-   cout<<"\t\t\t\t\t------------------------------";
-   cout<<"\n\t\t\t\t\t\t     LOGIN \n";	
-   cout<<"\t\t\t\t\t------------------------------\n\n";	
-   cout << "\t\t\t\t\tEnter Password: ";
-   ch = _getch();
-   while(ch != 13){//character 13 is enter
-      pass.push_back(ch);
-      cout << '*';
-      ch = _getch();
-   }
-   if(pass == "pass"){
-      cout << "\n\n\n\t\t\t\t\t\tAccess Granted! \n";
-      system("PAUSE");
-      system ("CLS");
-   }else{
-      cout << "\n\n\t\t\t\t\t\t\tAccess Aborted...\n\t\t\t\t\t\t\tPlease Try Again\n\n";
-      system("PAUSE");
-      system("CLS");
-      login();
-   }
-}
+    
 
