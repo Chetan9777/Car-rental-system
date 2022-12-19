@@ -1,7 +1,8 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
-class car        // Class Creation
+class car        // Class Car
 {
     public:
     int choice ,p , b , c , t , distance;
@@ -37,12 +38,22 @@ class car        // Class Creation
     
 // };
 
-class customer
+class customer     // Class customer inherited from Class car
 {
     public :
     char cname[100];
     int age;
     int phone_no;
+    int login()
+    {
+        cout<<"||-------- Login Form --------||"<<endl<<endl;
+        cout<<"  Enter your name : ";
+        cin>>cname;
+        cout<<"  Enter your mobile no. : ";
+        cin>>phone_no;
+        cout<<"  Enter your age : ";
+        cin>>age;
+    }
 };
 
 void car :: recommend()
@@ -125,7 +136,7 @@ void car :: rent()
     cout<<" 1. Rentals "<<endl;
     cout<<" 2. Reserve "<<endl;
     cout<<" 3. Intercity "<<endl;
-    cout<<" Select your Type "<<endl;
+    cout<<" Select your Type ";
     cin>>t;
     cout<<endl;
     switch(t)
@@ -159,6 +170,28 @@ void car :: bill()
         cout<<" Lamborghini will costs : "<<distance*40<<endl;
         cout<<" Rolls Royce will costs : "<<distance*70<<endl;
         cout<<" Electric will costs    : "<<distance*15<<endl;
+    }
+    
+    else if( distance>10 && distance <100)
+    {
+        cout<<" Tata will costs        : "<<distance*12<<endl;
+        cout<<" Tesla will costs       : "<<distance*52<<endl;
+        cout<<" Audi will costs        : "<<distance*23<<endl;
+        cout<<" BMW will costs         : "<<distance*34<<endl;
+        cout<<" Lamborghini will costs : "<<distance*42<<endl;
+        cout<<" Rolls Royce will costs : "<<distance*74<<endl;
+        cout<<" Electric will costs    : "<<distance*18<<endl;
+    }
+    
+    else 
+    {
+        cout<<" Tata will costs        : "<<distance*15<<endl;
+        cout<<" Tesla will costs       : "<<distance*55<<endl;
+        cout<<" Audi will costs        : "<<distance*25<<endl;
+        cout<<" BMW will costs         : "<<distance*38<<endl;
+        cout<<" Lamborghini will costs : "<<distance*45<<endl;
+        cout<<" Rolls Royce will costs : "<<distance*78<<endl;
+        cout<<" Electric will costs    : "<<distance*20<<endl;
     }
     
 }
@@ -205,9 +238,15 @@ void car :: all_details()
 int main()
 {
     car c;
+    customer c1;
+    c1.login();
+    cout<<endl<<endl;
     c.all_details();
+    
+    
     
 }
 
     
+
 
