@@ -2,19 +2,24 @@
 #include<cstdlib>
 using namespace std;
 
-class car        // Class Car
+class locatiion
+{  
+    public:
+    char pick[100];
+    char drop[100];
+};
+
+class car: public locatiion     // Class Car
 {
     public:
     int choice ,p , b , c , t , distance;
     void recommend ();
-    void all_details();
+    int all_details();
     void enquiry();
     void rent();
     int brentals();
     int breserve();
     int bintercity();
-    char pick[100];
-    char drop[100];
     void bill();
     
     void show_cars()
@@ -42,15 +47,25 @@ class customer     // Class customer inherited from Class car
 {
     public :
     char cname[100];
-    int age;
-    int phone_no;
-    int login()
-    {
+    void login()
+    {   
+        char cname[100];
+        int age;
         cout<<"||-------- Login Form --------||"<<endl<<endl;
         cout<<"  Enter your name : ";
         cin>>cname;
+        try{
+        string phone_no;
         cout<<"  Enter your mobile no. : ";
         cin>>phone_no;
+        if(phone_no.size()!=10){
+            throw phone_no;
+        }
+        }
+        catch(string a){
+            cout<<"\tEnter a valid mobile number\n";
+            exit(0);
+        }
         cout<<"  Enter your age : ";
         cin>>age;
     }
@@ -195,7 +210,7 @@ void car :: bill()
     }
     
 }
-void car :: all_details()
+int car :: all_details()
 {
     cout<<"*-------------------------------*"<<endl;
     cout<<"  Welcome to Car Rental System "<<endl;
@@ -233,6 +248,7 @@ void car :: all_details()
           break;
         
     }
+    return choice;
     cout<<endl;
 }
 int main()
@@ -241,12 +257,12 @@ int main()
     customer c1;
     c1.login();
     cout<<endl<<endl;
-    c.all_details();
+    while(c.all_details()!=5){
+        c.all_details();
+    }
     
-    
+    return 0;
     
 }
-
-    
 
 
