@@ -1,2 +1,11 @@
 # Car-rental-system
-Car rental system is c++ (OOP)  project to implement all the features of OOP.
+This project is designed to be used by a Car Rental Company specializing in renting 
+cars to customers.
+It is an online system through which customers can view available cars, register, view 
+profile and book a car. Car rental agencies primarily serve people who require a 
+temporary vehicle, those who do not own their car, travelers who are out of town, 
+or owners of damaged or destroyed vehicles who are awaiting repair or insurance 
+compensation.
+
+
+
