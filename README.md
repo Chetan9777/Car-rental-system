@@ -8,4 +8,4 @@ or owners of damaged or destroyed vehicles who are awaiting repair or insurance
 compensation.
 
 
-
+<img src="final.jpg" alt="Alt text" title="Optional title">
